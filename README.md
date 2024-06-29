@@ -1,7 +1,11 @@
 # JuicyDock
+
 Godot project
+
 Puzzle game, moving boxes
+
 Move fruit
+
 Collect the same fruits together
 
 
