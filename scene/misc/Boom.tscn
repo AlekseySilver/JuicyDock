@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl840yqfvyu8x"]
+
+[ext_resource type="Script" path="res://scene/misc/Boom.gd" id="1_l1x88"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s1vk"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_m1eja"]
+material = SubResource("StandardMaterial3D_6s1vk")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_c56s7"]
+_data = [Vector2(0, 0), 0.0, 7.22693, 0, 0, Vector2(0.501629, 0.974576), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.66683, 0.0, 0, 0]
+point_count = 3
+
+[node name="Boom" type="CPUParticles3D"]
+emitting = false
+amount = 20
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+local_coords = true
+mesh = SubResource("BoxMesh_m1eja")
+spread = 180.0
+gravity = Vector3(0, 0.045, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+angular_velocity_max = 141.35
+tangential_accel_min = -1.0
+tangential_accel_max = 1.0
+scale_amount_curve = SubResource("Curve_c56s7")
+script = ExtResource("1_l1x88")

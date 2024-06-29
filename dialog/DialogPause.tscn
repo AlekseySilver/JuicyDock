@@ -1,0 +1,181 @@
+[gd_scene load_steps=9 format=3 uid="uid://y7nevi25xv8p"]
+
+[ext_resource type="Script" path="res://dialog/DialogPause.gd" id="1_0ai2b"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="2_bg1lp"]
+[ext_resource type="Script" path="res://dialog/DynamicSizeLabel.gd" id="2_xapxb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjdg8"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw33o"]
+atlas = ExtResource("2_bg1lp")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kl056"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwfcp"]
+atlas = ExtResource("2_bg1lp")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pl8j"]
+atlas = ExtResource("2_bg1lp")
+region = Rect2(384, 64, 64, 64)
+
+[node name="DialogPause" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54902, 0.839216, 1, 0.784314)
+script = ExtResource("1_0ai2b")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0659722
+anchor_top = 0.0329218
+anchor_right = 0.917083
+anchor_bottom = 0.197572
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -0.12001
+offset_bottom = -0.0200005
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_tjdg8")
+script = ExtResource("2_xapxb")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonPlay" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.248971
+anchor_right = 0.955278
+anchor_bottom = 0.419292
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0191571
+anchor_top = 0.0843373
+anchor_right = 0.264
+anchor_bottom = 0.855
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_kw33o")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonPlay"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "RESUME"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_xapxb")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.497942
+anchor_right = 0.955278
+anchor_bottom = 0.668263
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonAgain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0191571
+anchor_top = 0.0843373
+anchor_right = 0.264
+anchor_bottom = 0.855
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_uwfcp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonAgain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_xapxb")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonExit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.744856
+anchor_right = 0.955278
+anchor_bottom = 0.915177
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0191571
+anchor_top = 0.0843373
+anchor_right = 0.264
+anchor_bottom = 0.855
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_3pl8j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "EXIT"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_xapxb")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="ButtonAgain" to="." method="_on_button_again_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]

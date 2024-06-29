@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm1wurm48wv1t"]
+
+[ext_resource type="Script" path="res://scene/misc/Button3D.gd" id="1_rmvx7"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="2_sumle"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3g0j7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gkj2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ixytv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_sumle")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0.125, 0.25, 0)
+
+[node name="Button3D" type="Area3D"]
+monitoring = false
+script = ExtResource("1_rmvx7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3g0j7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -4.37114e-08, -0.5, 0, 1, -2.18557e-08, 0, 0, 0.5)
+mesh = SubResource("PlaneMesh_gkj2s")
+surface_material_override/0 = SubResource("StandardMaterial3D_ixytv")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.573319)
+text = "123"

@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="JuicyDock"
+run/main_scene="res://scene/screen/LevelSelect.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+boot_splash/image="res://Splash.png"
+config/icon="res://icon.svg"
+
+[autoload]
+
+App="*res://App.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=380
+window/size/viewport_height=800
+window/stretch/aspect="keep_width"
+window/handheld/orientation=5
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localization.en.translation", "res://localization/localization.ru.translation")
+
+[physics]
+
+common/physics_ticks_per_second=30
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_environment="res://environment01.tres"

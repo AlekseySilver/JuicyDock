@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lwsexe1by8b0"]
+
+[ext_resource type="Script" path="res://scene/FSM/FSM.gd" id="1_h4eui"]
+
+[node name="FSM" type="Node"]
+script = ExtResource("1_h4eui")

@@ -1,0 +1,270 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0knrdddc6dnj"]
+
+[ext_resource type="Script" path="res://dialog/DialogInfo.gd" id="1_kdtjq"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="2_fbxak"]
+[ext_resource type="Script" path="res://dialog/DynamicSizeLabel.gd" id="2_mmf7c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjdg8"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vapk"]
+atlas = ExtResource("2_fbxak")
+region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kl056"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yo7n"]
+atlas = ExtResource("2_fbxak")
+region = Rect2(384, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wpqj"]
+atlas = ExtResource("2_fbxak")
+region = Rect2(0, 65, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpd3"]
+atlas = ExtResource("2_fbxak")
+region = Rect2(448, 448, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me224"]
+atlas = ExtResource("2_fbxak")
+region = Rect2(448, 384, 64, 64)
+
+[node name="DialogInfo" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.431373, 0.423529, 0.447059, 0.784314)
+script = ExtResource("1_kdtjq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0611111
+anchor_top = 0.126563
+anchor_right = 0.911444
+anchor_bottom = 0.245344
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -0.12001
+offset_bottom = -0.0200005
+text = "TARGETS"
+label_settings = SubResource("LabelSettings_tjdg8")
+script = ExtResource("2_mmf7c")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonClose" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0111111
+anchor_top = 0.009375
+anchor_right = 0.980889
+anchor_bottom = 0.104337
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonClose"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.0163934
+anchor_right = 0.183106
+anchor_bottom = 1.03221
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_7vapk")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonClose"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "CLOSE"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_mmf7c")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="Target1" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.295312
+anchor_right = 0.948334
+anchor_bottom = 0.465633
+offset_right = -0.12
+offset_bottom = 0.224
+color = Color(0.629675, 0.629675, 0.629675, 0.784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Target1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010727
+anchor_top = 0.204314
+anchor_right = 0.206583
+anchor_bottom = 0.789916
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_6yo7n")
+metadata/_edit_use_anchors_ = true
+
+[node name="Star" type="TextureRect" parent="Target1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.373912
+anchor_top = -0.384512
+anchor_right = 0.569768
+anchor_bottom = 0.201091
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_3wpqj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Target1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_mmf7c")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[node name="Target2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.554688
+anchor_right = 0.948334
+anchor_bottom = 0.725008
+offset_right = -0.12
+offset_bottom = 0.224
+color = Color(0.629675, 0.629675, 0.629675, 0.784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Target2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010727
+anchor_top = 0.204314
+anchor_right = 0.206583
+anchor_bottom = 0.789916
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_kvpd3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Star" type="TextureRect" parent="Target2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.373912
+anchor_top = -0.384512
+anchor_right = 0.569768
+anchor_bottom = 0.201091
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_3wpqj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Target2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_mmf7c")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[node name="Target3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.8125
+anchor_right = 0.948334
+anchor_bottom = 0.982821
+offset_right = -0.12
+offset_bottom = 0.224
+color = Color(0.629675, 0.629675, 0.629675, 0.784314)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Target3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010727
+anchor_top = 0.204314
+anchor_right = 0.206583
+anchor_bottom = 0.789916
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_me224")
+metadata/_edit_use_anchors_ = true
+
+[node name="Star" type="TextureRect" parent="Target3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.373912
+anchor_top = -0.384512
+anchor_right = 0.569768
+anchor_bottom = 0.201091
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_3wpqj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Target3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_mmf7c")
+font_scale = 0.3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ButtonClose" to="." method="_on_button_close_pressed"]

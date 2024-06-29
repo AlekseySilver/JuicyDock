@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8y2hwrk2s6s8"]
+
+[ext_resource type="Script" path="res://scene/field/Field.gd" id="1_gt5lp"]
+[ext_resource type="PackedScene" uid="uid://lwsexe1by8b0" path="res://scene/FSM/FSM.tscn" id="2_ytl6x"]
+[ext_resource type="PackedScene" uid="uid://bmqbiwcntq47p" path="res://scene/FSM/FSMAction.tscn" id="3_v11k7"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="4_htk6e"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l4q55"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rx5j"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("4_htk6e")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0.125, 0.125, 0)
+
+[node name="Field" type="Node3D"]
+script = ExtResource("1_gt5lp")
+boom_file_path = "res://scene/misc/Boom.tscn"
+
+[node name="FSM" parent="." node_paths=PackedStringArray("default_action") instance=ExtResource("2_ytl6x")]
+default_action = NodePath("Vortex")
+
+[node name="Vortex" parent="FSM" instance=ExtResource("3_v11k7")]
+on_start_method = &"vortex_on_start"
+check_finish_method = &"vortex_check_finish"
+
+[node name="CheckRemove" parent="FSM" instance=ExtResource("3_v11k7")]
+on_start_method = &"check_remove_on_start"
+check_finish_method = &"check_remove_check_finish"
+
+[node name="CheckWinLose" parent="FSM" instance=ExtResource("3_v11k7")]
+on_start_method = &"check_win_lose_on_start"
+check_finish_method = &"check_win_lose_check_finish"
+
+[node name="ListenUserInput" parent="FSM" instance=ExtResource("3_v11k7")]
+check_finish_method = &"listen_user_input_check_finish"
+
+[node name="AnimateMove" parent="FSM" instance=ExtResource("3_v11k7")]
+on_start_method = &"animate_move_on_start"
+check_finish_method = &"animate_move_check_finish"
+
+[node name="CannonNetAnimate" parent="FSM" instance=ExtResource("3_v11k7")]
+on_start_method = &"cannon_net_anim_on_start"
+check_finish_method = &"cannon_net_anim_check_finish"
+
+[node name="NetFly" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 8.08964e-21, -3.53609e-28, 0, -2.18557e-08, -0.5, -8.08964e-21, 0.5, -2.18557e-08, 0, 0, 0.6)
+visible = false
+mesh = SubResource("PlaneMesh_l4q55")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_8rx5j")

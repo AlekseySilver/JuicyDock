@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://udrcaaocda56"]
+
+[ext_resource type="Script" path="res://dialog/DialogSettings.gd" id="1_rx0dq"]
+[ext_resource type="Script" path="res://dialog/DynamicSizeLabel.gd" id="2_drrhl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kl056"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DialogSettings" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.431373, 0.423529, 0.447059, 0.784314)
+script = ExtResource("1_rx0dq")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonEn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0111111
+anchor_top = 0.009375
+anchor_right = 0.980889
+anchor_bottom = 0.104337
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonEn"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0213765
+anchor_top = 0.197116
+anchor_right = 0.969254
+anchor_bottom = 0.800723
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "English"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_drrhl")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonRu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0131579
+anchor_top = 0.1525
+anchor_right = 0.982936
+anchor_bottom = 0.247462
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonRu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0213765
+anchor_top = 0.197116
+anchor_right = 0.969254
+anchor_bottom = 0.800723
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "Русский"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_drrhl")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ButtonEn" to="." method="_on_button_en_pressed"]
+[connection signal="pressed" from="ButtonRu" to="." method="_on_button_ru_pressed"]

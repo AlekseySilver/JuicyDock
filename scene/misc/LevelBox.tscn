@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqhx1njxtsr80"]
+
+[ext_resource type="Script" path="res://scene/misc/LevelBox.gd" id="1_7bxyd"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="2_0ulqd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qd4b7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbyhv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_65wa4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcyrh"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_0ulqd")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0, 0.125, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4u64x"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_0ulqd")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0, 0.125, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n7la"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_0ulqd")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0, 0.125, 0)
+
+[node name="Level01" type="Area3D"]
+monitoring = false
+script = ExtResource("1_7bxyd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qd4b7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bbyhv")
+
+[node name="LevelNumber" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.240889, 0.573319)
+text = "123"
+font_size = 70
+
+[node name="Star1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.3, -0.1, 0.577)
+mesh = SubResource("QuadMesh_65wa4")
+surface_material_override/0 = SubResource("StandardMaterial3D_jcyrh")
+
+[node name="Star2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.19748, 0.577479)
+mesh = SubResource("QuadMesh_65wa4")
+surface_material_override/0 = SubResource("StandardMaterial3D_4u64x")
+
+[node name="Star3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.3, -0.1, 0.577)
+mesh = SubResource("QuadMesh_65wa4")
+surface_material_override/0 = SubResource("StandardMaterial3D_3n7la")

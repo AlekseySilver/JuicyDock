@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://b30ecespku6rm"]
+
+[ext_resource type="PackedScene" uid="uid://d1beokusfio58" path="res://scene/field/block/Block.tscn" id="1_h45eg"]
+[ext_resource type="Script" path="res://scene/field/block/BlockFruit.gd" id="2_tli24"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="3_5xgdg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wmiql"]
+albedo_color = Color(0.416978, 0.710817, 0.992006, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2db4"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_5xgdg")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0.25, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3uiu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ux8x"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_5xgdg")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0.125, 0.125, 0)
+
+[sub_resource type="Animation" id="Animation_a82lf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Face:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.445, 0.445, 0.445)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Box:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yagq6"]
+resource_name = "Vortex"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.336945, -0.387669, 0), Vector3(-0.34745, 0.417634, 0), Vector3(0.383682, 0.302284, 0), Vector3(0.277723, -0.324832, 0), Vector3(-0.292825, -0.206759, 0), Vector3(-0.131965, 0.188362, 0), Vector3(0.161025, 0.0475011, 0), Vector3(-0.011994, -0.126037, 0), Vector3(-0.0315708, 0.0733745, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Face:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.55), Vector3(-0.336945, -0.387669, 0.55), Vector3(-0.34745, 0.417634, 0.55), Vector3(0.383682, 0.302284, 0.55), Vector3(0.277723, -0.324832, 0.55), Vector3(-0.292825, -0.206759, 0.55), Vector3(-0.131965, 0.188362, 0.55), Vector3(0.161025, 0.0475011, 0.55), Vector3(-0.011994, -0.126037, 0.55), Vector3(-0.0315708, 0.0733745, 0.55), Vector3(0, 0, 0.55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Face:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.445, 0.445, 0.445), Vector3(0.01, 0.01, 0.01)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Box:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.01, 0.01, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_plj18"]
+_data = {
+"RESET": SubResource("Animation_a82lf"),
+"Vortex": SubResource("Animation_yagq6")
+}
+
+[node name="Block" instance=ExtResource("1_h45eg")]
+script = ExtResource("2_tli24")
+
+[node name="Box" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wmiql")
+
+[node name="Face" parent="." index="2"]
+transform = Transform3D(0.445, 7.19978e-21, -3.14712e-28, 0, -1.94516e-08, -0.445, -7.19978e-21, 0.445, -1.94516e-08, 0, 0, 0.55)
+surface_material_override/0 = SubResource("StandardMaterial3D_o2db4")
+
+[node name="Net" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.5, 8.08964e-21, -3.53609e-28, 0, -2.18557e-08, -0.5, -8.08964e-21, 0.5, -2.18557e-08, 0, 0, 0.6)
+visible = false
+mesh = SubResource("PlaneMesh_j3uiu")
+surface_material_override/0 = SubResource("StandardMaterial3D_3ux8x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_plj18")
+}

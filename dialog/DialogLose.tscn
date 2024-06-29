@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpuqwh68gupp4"]
+
+[ext_resource type="Script" path="res://dialog/DialogLose.gd" id="1_klevj"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="2_17mdc"]
+[ext_resource type="Script" path="res://dialog/DynamicSizeLabel.gd" id="2_ug4vh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjdg8"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwfcp"]
+atlas = ExtResource("2_17mdc")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kl056"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pl8j"]
+atlas = ExtResource("2_17mdc")
+region = Rect2(384, 64, 64, 64)
+
+[node name="DialogLose" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.712725, 0.687192, 0.784314)
+script = ExtResource("1_klevj")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0666667
+anchor_top = 0.0328125
+anchor_right = 0.928111
+anchor_bottom = 0.432844
+offset_left = 1.0
+offset_top = -1.0
+offset_right = -0.12001
+offset_bottom = -0.0200005
+text = "lose reason"
+label_settings = SubResource("LabelSettings_tjdg8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_ug4vh")
+font_scale = 0.2
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.497942
+anchor_right = 0.955278
+anchor_bottom = 0.668263
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonAgain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0191571
+anchor_top = 0.0843373
+anchor_right = 0.264
+anchor_bottom = 0.855
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_uwfcp")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonAgain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "AGAIN"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ug4vh")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonExit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0486111
+anchor_top = 0.744856
+anchor_right = 0.955278
+anchor_bottom = 0.915177
+offset_right = -0.12
+offset_bottom = 0.224
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0191571
+anchor_top = 0.0843373
+anchor_right = 0.264
+anchor_bottom = 0.855
+offset_right = 0.0960007
+offset_bottom = 0.034996
+texture = SubResource("AtlasTexture_3pl8j")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ButtonExit"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283046
+anchor_top = 0.193
+anchor_right = 0.969613
+anchor_bottom = 0.795301
+offset_left = 0.124992
+offset_top = -0.019001
+offset_right = -0.0690155
+offset_bottom = -0.0100021
+text = "EXIT"
+label_settings = SubResource("LabelSettings_kl056")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ug4vh")
+font_scale = 0.4
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ButtonAgain" to="." method="_on_button_again_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]

@@ -1,0 +1,25 @@
+﻿KEYS,en,ru
+RESUME,Resume,Продолжить
+EXIT,Exit,Выход
+PLAY,Play,Играть
+LANG,Language/Язык,Язык/Language
+RANDOM,Random,Случайный
+TARGETS,Targets,Цели
+CLOSE,Close,Закрыть
+PAUSED,Paused,На паузе
+PAUSE,Pause,Пауза
+AGAIN,Again,Повтор
+COMBO,Combo,Комбо
+COMBOX, x combo, x комбо
+MAX_STEP,moves not more then ,перемещений не более чем 
+MAX_TIME,time not more then ,время не более чем 
+MIN_COMBO,combo not fewer then ,комбо не менее чем 
+MIN_FRUIT,fruit not fewer then ,фруктов не менее чем 
+TIME_REST, seconds left, секунд осталось
+STEP_REST, moves left, ходов осталось
+COMBO_NEED, x combo needed, x комбо нужно
+FRUIT_NEED, fruit needed, фруктов нужно
+TIME_IS_UP,Time is up,Время вышло
+NO_MOVES_LEFT,No moves left,Кончились ходы
+WIN,You win,Победа
+NEXT,Next,Следующий

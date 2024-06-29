@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://vhinnm1q51dv"]
+
+[ext_resource type="Script" path="res://scene/screen/ScreenWithFader.gd" id="1_xbanb"]
+[ext_resource type="Environment" uid="uid://ehvyagk4hak" path="res://environment01.tres" id="2_dbais"]
+[ext_resource type="Material" uid="uid://c4iecnk1ei5qx" path="res://material/bck00.material" id="3_fa4r6"]
+[ext_resource type="Script" path="res://scene/screen/Background.gd" id="4_o34la"]
+
+[sub_resource type="Animation" id="Animation_6l0nm"]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye08x"]
+_data = {
+"Fade": SubResource("Animation_6l0nm")
+}
+
+[sub_resource type="Animation" id="Animation_0sby2"]
+resource_name = "Show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4ctd"]
+_data = {
+"Show": SubResource("Animation_0sby2")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_va8pj"]
+
+[node name="SceneRoot" type="Node3D"]
+script = ExtResource("1_xbanb")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fader" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 0.025)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/Fader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Fader"]
+libraries = {
+"": SubResource("AnimationLibrary_ye08x")
+}
+
+[node name="Dialog" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="Control" parent="UI/Dialog"]
+layout_mode = 1
+anchor_left = -1.0
+anchor_bottom = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Dialog"]
+libraries = {
+"": SubResource("AnimationLibrary_h4ctd")
+}
+
+[node name="Custom" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.5)
+environment = ExtResource("2_dbais")
+
+[node name="Background" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, -20)
+material_override = ExtResource("3_fa4r6")
+mesh = SubResource("QuadMesh_va8pj")
+script = ExtResource("4_o34la")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.960292, 0.237886, -0.145771, -0.195714, 0.946739, 0.255697, 0.198833, -0.217014, 0.955704, -2.22219, 1.61014, 4.58845)

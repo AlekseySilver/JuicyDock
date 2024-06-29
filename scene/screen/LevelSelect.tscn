@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://drgspybwsfia4"]
+
+[ext_resource type="PackedScene" uid="uid://vhinnm1q51dv" path="res://scene/screen/ScreenWithFader.tscn" id="1_kpkcd"]
+[ext_resource type="Script" path="res://scene/screen/LevelSelect.gd" id="2_op3sr"]
+[ext_resource type="Script" path="res://dialog/DynamicSizeLabel.gd" id="3_c5jee"]
+[ext_resource type="Texture2D" uid="uid://3kjns4rw6bw8" path="res://texture/blocks.png" id="4_kkb30"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32j5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aklw8"]
+atlas = ExtResource("4_kkb30")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a1suw"]
+size = Vector3(6.01172, 2.0575, 0.491699)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4g6b1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lr4t"]
+albedo_color = Color(0.325441, 0.325441, 0.325441, 1)
+
+[node name="SceneRoot" instance=ExtResource("1_kpkcd")]
+script = ExtResource("2_op3sr")
+camera_speed = 2.0
+scroll_speed = 10.0
+min_cam_y = -23.8
+max_cam_y = -0.8
+
+[node name="ButtonRandom" type="Button" parent="UI/Custom" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.381579
+anchor_top = 0.03
+anchor_right = 0.970737
+anchor_bottom = 0.09715
+offset_right = 0.119995
+offset_bottom = 0.279999
+theme_override_font_sizes/font_size = 33
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="UI/Custom/ButtonRandom" index="0"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0491071
+anchor_top = 0.16637
+anchor_right = 0.964643
+anchor_bottom = 0.870444
+offset_top = 0.0159998
+offset_right = -0.0800171
+offset_bottom = -0.00400162
+text = "RANDOM"
+label_settings = SubResource("LabelSettings_p32j5")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_c5jee")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSettings" type="Button" parent="UI/Custom" index="1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0605263
+anchor_top = 0.03
+anchor_right = 0.200316
+anchor_bottom = 0.09097
+offset_right = -0.120003
+offset_bottom = 0.223999
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Custom/ButtonSettings" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_aklw8")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 7)
+
+[node name="TopPanel" type="Area3D" parent="Camera3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.105, -5.9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/TopPanel" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00878906, 0.0507202, -0.25415)
+shape = SubResource("BoxShape3D_a1suw")
+
+[node name="Panel" type="MeshInstance3D" parent="Camera3D/TopPanel" index="1"]
+transform = Transform3D(3.01, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_4g6b1")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8lr4t")
+
+[node name="Background" parent="Camera3D" index="1"]
+materials = Array[String](["res://material/bck01.material"])
+speed = 0.2
+min_dst = Vector2(-10, -8)
+max_dst = Vector2(10, 4)
+
+[node name="Levels" type="Node3D" parent="." index="3"]
+
+[connection signal="pressed" from="UI/Custom/ButtonRandom" to="." method="_on_button_random_pressed"]
+[connection signal="pressed" from="UI/Custom/ButtonSettings" to="." method="_on_button_settings_pressed"]

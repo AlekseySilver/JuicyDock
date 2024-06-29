@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1beokusfio58"]
+
+[ext_resource type="Script" path="res://scene/field/block/Block.gd" id="1_1cqqo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qd4b7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bbyhv"]
+size = Vector3(0.95, 0.95, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g03jk"]
+
+[node name="Block" type="Area3D"]
+monitoring = false
+script = ExtResource("1_1cqqo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_qd4b7")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_bbyhv")
+
+[node name="Face" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.445, 0, -7.78062e-08, -7.78062e-08, -1.94516e-08, -0.445, -3.40103e-15, 0.445, -1.94516e-08, 0, 0, 0.55)
+mesh = SubResource("PlaneMesh_g03jk")
